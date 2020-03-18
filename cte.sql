@@ -29,6 +29,6 @@ inner join cte_staff as cs on (s.staff_id=cs.staff_id)
 with cte_payment_1 as (
 select * from payment where customer_id=107 and payment_date::date between '20070220' and '20070228'
 ), cte_payment_2 as (
-select * from payment where customer_id=107 and payment_date::date between '20070220' and '20070331'
+select * from payment where customer_id=107 and payment_date::date between '20070220' and '20070310'
 	)
 	select count(*) from cte_payment_1 union all select count(*) from cte_payment_2
