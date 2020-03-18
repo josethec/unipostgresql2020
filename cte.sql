@@ -25,3 +25,10 @@ group by staff_id
 	)
 select s.staff_id,s.first_name,s.last_name, cs.conteo from staff s
 inner join cte_staff as cs on (s.staff_id=cs.staff_id)
+
+with cte_payment_1 as (
+select * from payment where customer_id=107 and payment_date::date between '20070220' and '20070228'
+), cte_payment_2 as (
+select * from payment where customer_id=107 and payment_date::date between '20070220' and '20070331'
+	)
+	select count(*) from cte_payment_1 union all select count(*) from cte_payment_2
