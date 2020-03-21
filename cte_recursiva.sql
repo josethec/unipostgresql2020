@@ -29,7 +29,7 @@ with recursive subordinates as
 		full_name
 	from
 		employees
-	where employee_id=1
+	where employee_id=2
 	union
 		select
 			e.employee_id,
@@ -37,5 +37,26 @@ with recursive subordinates as
 			e.full_name
 		from
 			employees e
-		inner join subordinates s on s.employee_id=e.manager_id
+		inner join subordinates s on s.manager_id =e.employee_id
+) select * from subordinates;
+
+
+
+with recursive subordinates as
+(
+	select 
+		employee_id,
+		manager_id,
+		full_name
+	from
+		employees
+	where employee_id=2
+	union
+		select
+			e.employee_id,
+			e.manager_id,
+			e.full_name
+		from
+			employees e
+		inner join subordinates s on s.employee_id=e.manager_id 
 ) select * from subordinates;
