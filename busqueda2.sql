@@ -27,3 +27,32 @@ from pgweb
 union all
 select to_tsvector(body),to_tsquery('amigo'),body,'Español'
 from pgweb
+
+
+alter table pgweb 
+add column idioma regconfig default('spanish');
+
+alter table pgweb drop column busqueda2_es;
+
+alter table pgweb
+add column busqueda_es tsvector
+generated always as (to_tsvector('spanish',coalesce('title','')|| ' '|| coalesce(body,''))) stored;
+
+
+alter table pgweb
+add column busqueda2_multi tsvector
+generated always as (to_tsvector(idioma,coalesce('title','')|| ' '|| coalesce(body,''))) stored;
+
+
+insert into pgweb(title,body,idioma) values
+('Creation','This article teach how work with table','english'),
+('Creation','This article teachs how work with table','spanish');
+
+update pgweb set idioma='english' where id=12;
+update pgweb set title='Create' where id=12;
+
+select * from pgweb order by id desc;
+
+
+select to_tsquery(idioma,'create & table'),busqueda2_multi from pgweb where 
+busqueda2_multi @@ to_tsquery
