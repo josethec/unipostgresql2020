@@ -1,0 +1,21 @@
+py -m venv C:\python\entvirt\dj22
+
+C:\python\entvirt\dj22\Scripts\activate.bat
+
+Instalar django:
+
+ pip install Django==2.2
+
+Ver que está instalado:
+pip freeze
+
+Desactivar entorno virtual:
+deactivate.bat
+
+pip freeze > modulos_dj22.txt
+
+Crear proyecto en django:
+django-admin.exe --help
+
+django-admin.exe startproject proyecto
+
