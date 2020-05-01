@@ -19,3 +19,22 @@ django-admin.exe --help
 
 django-admin.exe startproject proyecto
 
+Sugerir errores de sintaxis:
+pip install pylint
+
+Driver para que django se conecte a una bd:
+pip install psycopg2
+
+En el templates configurar en settings.py:
+os.path.join(BASE_DIR,'templates'),
+
+LANGUAGE_CODE = 'es_NI'
+
+agregar despues de STATIC_URL:
+STATICFILES_DIRS=(os.path.join(BASE_DIR,'static'),)
+
+Levantar el servidor:
+ manage.py runserver
+
+Ver en navegador el proyecto:
+ http://127.0.0.1:8000/
