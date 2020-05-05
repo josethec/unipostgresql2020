@@ -55,3 +55,8 @@ git add .
 git commit -m "script 20200504"
 git push origin master
 
+Crear aplicacion:
+
+manage.py startapp app
+
+
