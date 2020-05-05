@@ -48,3 +48,10 @@ manage.py migrate: para migrar la bd
 
 Entrar a la administracion de Django:
 http://127.0.0.1:8000/admin/
+
+
+git status
+git add .
+git commit -m "script 20200504"
+git push origin master
+
