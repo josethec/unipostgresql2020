@@ -59,4 +59,7 @@ Crear aplicacion:
 
 manage.py startapp app
 
+Crear segunda migracion:
+manage.py makemigrations
+
 
